@@ -78,6 +78,8 @@ DEFAULT_LAST_OUTPUT_NAME = "last"
 
 IMAGE_EXTENSIONS = [".png", ".jpg", ".jpeg", ".webp", ".bmp", ".PNG", ".JPG", ".JPEG", ".WEBP", ".BMP"]
 
+import PIL
+PIL.Image.MAX_IMAGE_PIXELS = 32768 * 32768
 
 class ImageInfo:
     def __init__(self, image_key: str, num_repeats: int, caption: str, is_reg: bool, absolute_path: str) -> None:

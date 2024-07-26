@@ -1029,7 +1029,7 @@ class DreamBoothDataset(BaseDataset):
                         caption = lines[0].strip()
                     break
                 else:
-                    assert False, f"caption file not found / キャプションファイルがありません: {cap_path}"
+                    print(f"caption not found / キャプションファイルがありません: {cap_path}")
             return caption
 
         def load_dreambooth_dir(subset: DreamBoothSubset):

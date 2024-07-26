@@ -1015,7 +1015,7 @@ class DreamBoothDataset(BaseDataset):
             if len(tokens) >= 5:
                 base_name_face_det = "_".join(tokens[:-4])
             cap_paths = [base_name + caption_extension, base_name_face_det + caption_extension]
-
+    
             caption = None
             for cap_path in cap_paths:
                 if os.path.isfile(cap_path):
@@ -1028,6 +1028,8 @@ class DreamBoothDataset(BaseDataset):
                         assert len(lines) > 0, f"caption file is empty / キャプションファイルが空です: {cap_path}"
                         caption = lines[0].strip()
                     break
+                else:
+                    assert False, f"caption file not found / キャプションファイルがありません: {cap_path}"
             return caption
 
         def load_dreambooth_dir(subset: DreamBoothSubset):
